@@ -143,7 +143,7 @@ public struct CloudFront {
         return try client.send(operation: "ListCloudFrontOriginAccessIdentities2019_03_26", path: "/2019-03-26/origin-access-identity/cloudfront", httpMethod: "GET", input: input)
     }
 
-    public func listDistributions20190326(_ input: ListDistributionsRequest) throws -> Future<ListDistributionsResult> {
+    public func listDistributions20190326(_ input: ListDistributionsRequest) throws -> Future<DistributionList> {
         return try client.send(operation: "ListDistributions2019_03_26", path: "/2019-03-26/distribution", httpMethod: "GET", input: input)
     }
 

@@ -2532,7 +2532,7 @@ extension CloudFront {
 
     public enum HttpVersion: String, CustomStringConvertible, Codable {
         case http11 = "http1.1"
-        case http2 = "http2"
+        case http2 = "HTTP2"
         public var description: String { return self.rawValue }
     }
 
@@ -2869,6 +2869,12 @@ extension CloudFront {
 
         private enum CodingKeys: String, CodingKey {
             case distributionList = "DistributionList"
+        }
+        
+        public init(from decoder: Decoder) throws {
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+            let x = try container.decode(DistributionList.self, forKey: .distributionList)
+            self.distributionList = x
         }
     }
 
